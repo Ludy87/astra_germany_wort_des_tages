@@ -133,12 +133,12 @@ class WDTSensor(Entity):
     @property
     def name(self):
         """Return the name of the sensor."""
-        return self._name
+        return f"{self._name}"
 
     @property
     def last_updated(self):
         """Return the last_updated of the sensor."""
-        return self._last_updated
+        return f"{self._last_updated}"
 
     @property
     def state(self):
