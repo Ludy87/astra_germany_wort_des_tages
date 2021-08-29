@@ -43,6 +43,7 @@ class WDTSensor(Entity):
         """Initialize the sensor and variables."""
         self._name = config[CONF_NAME]
         self._word_frequency = None
+        self._current_time = None
         self._last_updated = None
         self._spelling = None
         self._meaning = None
@@ -65,6 +66,8 @@ class WDTSensor(Entity):
             logging.debug("no update %s".format(DOMAIN))
             return
         self._last_updated = datetime.now().date()
+        now = datetime.now()
+        self._current_time = now.strftime("%H:%M:%S")
 
         import requests
         from bs4 import BeautifulSoup
@@ -138,6 +141,11 @@ class WDTSensor(Entity):
     def last_updated(self):
         """Return the last_updated of the sensor."""
         return f"{self._last_updated}"
+
+    @property
+    def current_time(self):
+        """Return the last_updated of the sensor."""
+        return f"{self._current_time}"
 
     @property
     def state(self):

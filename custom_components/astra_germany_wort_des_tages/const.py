@@ -2,7 +2,7 @@ from datetime import datetime
 
 """ Constants """
 # Base component constants
-__version__ = '0.0.13'
+__version__ = '0.0.14'
 VERSION = __version__
 NAME = "Wort des Tages"
 DOMAIN = 'wort_des_tages'
