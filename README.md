@@ -43,7 +43,7 @@ sensor:
 4. Restart Home Assistant
 5. Check `Home Assistant » Developer Tools » States`
 
-# Template Erweiterung `configuration.yaml`
+## Template Erweiterung `configuration.yaml`
 
 ```yaml
 template:
