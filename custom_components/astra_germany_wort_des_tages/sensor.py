@@ -66,7 +66,8 @@ class WDTSensor(Entity):
         if self._last_updated == datetime.now().date():
             logging.debug("no update %s".format(DOMAIN))
             return
-        self._last_updated = datetime.now().date()
+        last_updated = datetime.now().date()
+        self._last_updated = '{:%Y-%m-%d}'.format(last_updated)
         now = datetime.now()
         self._current_time = now.strftime("%H:%M:%S")
 
