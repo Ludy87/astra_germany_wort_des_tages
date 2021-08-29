@@ -111,7 +111,7 @@ class WDTSensor(Entity):
     @property
     def word(self):
         """Return the word of the sensor."""
-        return self._word
+        return f"{self._word}"
 
     @property
     def spelling(self):
