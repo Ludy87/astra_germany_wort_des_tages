@@ -2,7 +2,7 @@ from datetime import datetime
 
 """ Constants """
 # Base component constants
-__version__ = '0.0.16'
+__version__ = '0.0.17'
 VERSION = __version__
 NAME = "Wort des Tages"
 DOMAIN = 'wort_des_tages'
@@ -24,7 +24,7 @@ SENSOR = "sensor"
 PLATFORMS = [SENSOR]
 
 # Defaults
-DEFAULT_NAME = DOMAIN
+DEFAULT_NAME = 'WDT'
 
 STARTUP_MESSAGE = f"""
 -------------------------------------------------------------------
