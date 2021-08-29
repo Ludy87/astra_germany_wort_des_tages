@@ -2,7 +2,7 @@ from datetime import datetime
 
 """ Constants """
 # Base component constants
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 DOMAIN = 'wort_des_tages'
 ISSUE_URL = "https://github.com/Ludy87/astra_germany_wort_des_tages/issues"
 

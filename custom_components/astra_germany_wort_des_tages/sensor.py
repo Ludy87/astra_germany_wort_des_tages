@@ -59,9 +59,9 @@ class WDTSensor(Entity):
         return word_frequency
 
     def scrape_url(self):
-        if self._last_updated == datetime.now().date():
-            return
-        self._last_updated = datetime.now().date()
+        #if self._last_updated == datetime.now().date():
+        #    return
+        #self._last_updated = datetime.now().date()
 
         import requests
         from bs4 import BeautifulSoup
