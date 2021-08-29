@@ -17,6 +17,7 @@ from .const import (
     DEFAULT_NAME,
     ISSUE_URL,
     ATTR_WDT_WORD_FREQUENCY,
+    ATTR_WDT_CURRENT_TIME,
     ATTR_WDT_LAST_UPDATED,
     ATTR_WDT_SPELLING,
     ATTR_WDT_MEANING,
@@ -157,6 +158,7 @@ class WDTSensor(Entity):
         """Return the state attributes"""
         return {
             ATTR_WDT_WORD_FREQUENCY: self._word_frequency,
+            ATTR_WDT_CURRENT_TIME: self._current_time,
             ATTR_WDT_LAST_UPDATED: self._last_updated,
             ATTR_WDT_SPELLING: self._spelling,
             ATTR_WDT_MEANING: self._meaning,

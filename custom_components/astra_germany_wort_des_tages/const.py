@@ -2,7 +2,7 @@ from datetime import datetime
 
 """ Constants """
 # Base component constants
-__version__ = '0.0.14'
+__version__ = '0.0.15'
 VERSION = __version__
 NAME = "Wort des Tages"
 DOMAIN = 'wort_des_tages'
@@ -12,6 +12,7 @@ CONF_DATE = 'date'
 CONF_NAME = 'name'
 
 ATTR_WDT_WORD_FREQUENCY = 'wordfrequency'
+ATTR_WDT_CURRENT_TIME = 'current_time'
 ATTR_WDT_LAST_UPDATED = 'last_updated'
 ATTR_WDT_SPELLING = 'spelling'
 ATTR_WDT_MEANING = 'meaning'
