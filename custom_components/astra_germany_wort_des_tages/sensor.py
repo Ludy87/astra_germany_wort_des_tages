@@ -9,12 +9,15 @@ import voluptuous as vol
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.sensor import PLATFORM_SCHEMA
+from homeassistant.const import (
+    CONF_NAME,
+    CONF_DATE,
+)
 
 from .const import (
     DOMAIN,
+    DEFAULT_NAME,
     ISSUE_URL,
-    CONF_NAME,
-    CONF_DATE,
     ATTR_WDT_WORD_FREQUENCY,
     ATTR_WDT_SPELLING,
     ATTR_WDT_MEANING,
@@ -25,7 +28,8 @@ from .const import (
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Required(CONF_NAME): cv.string,
+    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
+    vol.Optional(CONF_DATE, default=datetime.now().date()): cv.string,
 })
 
 

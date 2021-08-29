@@ -1,7 +1,7 @@
 {
   "domain": "wort_des_tages",
   "name": "Wort des Tages Sensor",
-  "version": "v0.0.5",
+  "version": "v0.0.6",
   "documentation": "https://github.com/Ludy87/astra_germany_wort_des_tages",
   "issue_tracker": "https://github.com/Ludy87/astra_germany_wort_des_tages/issues",
   "dependencies": [],
