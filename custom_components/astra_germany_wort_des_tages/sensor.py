@@ -24,9 +24,20 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_NAME, default='WDT'): cv.string,
-})
+#PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
+#    vol.Optional(CONF_NAME, default='WDT'): cv.string,
+#})
+
+CONFIG_SCHEMA = vol.Schema(
+    {
+        DOMAIN: vol.Schema(
+            {
+                vol.Optional(CONF_NAME, default='WDT'): cv.string,
+            }
+        )
+    },
+    extra=vol.ALLOW_EXTRA,
+)
 
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
