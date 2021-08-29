@@ -1,11 +1,12 @@
+# Wort des Tages
+
+Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet und anzeigt.
+
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ludy87/astra_germany_wort_des_tages)](https://github.com/Ludy87/astra_germany_wort_des_tages/releases)
 ![GitHub Release Date](https://img.shields.io/github/release-date/Ludy87/astra_germany_wort_des_tages)
 [![GitHub](https://img.shields.io/github/license/Ludy87/astra_germany_wort_des_tages)](LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/Ludy87/astra_germany_wort_des_tages)](https://github.com/Ludy87/astra_germany_wort_des_tages/issues)
-# Wort des Tages
-
-Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet und anzeigt.
 
 ## Features
   - Häufigkeit
@@ -15,26 +16,45 @@ Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet
 
 ## Options
 
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| name | string | `WDT` | Name des Sensors
+| Name | Type | Default | Required | Description
+| ---- | ---- | ------- | -------- | -----------
+| name | string | `WDT` | no | Name des Sensors
 
-## Instructions
+## Installation
+
+---
+
+### MANUAL INSTALLATION
+
 1. In deinem `config/custom_components` Ordner, einen Ordner mit dem Namen `astra_germany_wort_des_tages` erstellen
-2. Downloade die [\_\_init\_\_.py](https://raw.githubusercontent.com/Ludy87/astra_germany_wort_des_tages/main/custom_components/astra_germany_wort_des_tages/__init__.py), [manifest.json](https://raw.githubusercontent.com/Ludy87/astra_germany_wort_des_tages/main/custom_components/astra_germany_wort_des_tages/manifest.json) und [sensor.py](https://raw.githubusercontent.com/Ludy87/astra_germany_wort_des_tages/main/custom_components/astra_germany_wort_des_tages/sensor.py) und speichere sie in `config/custom_components/astra_germany_wort_des_tages` ab
-5. Füge den Sensor in die `configuration.yaml` ein
+2. Downloade [last Releae](https://github.com/Ludy87/astra_germany_wort_des_tages/releases) oder die [\_\_init\_\_.py](https://raw.githubusercontent.com/Ludy87/astra_germany_wort_des_tages/main/custom_components/astra_germany_wort_des_tages/__init__.py), [manifest.json](https://raw.githubusercontent.com/Ludy87/astra_germany_wort_des_tages/main/custom_components/astra_germany_wort_des_tages/manifest.json) und [sensor.py](https://raw.githubusercontent.com/Ludy87/astra_germany_wort_des_tages/main/custom_components/astra_germany_wort_des_tages/sensor.py) und speichere sie in `config/custom_components/astra_germany_wort_des_tages` ab
+
+### INSTALLATION mit HACS
+
+1. [HACS](https://hacs.xyz/) ist installier?
+2. füge ein `Benutzerdefinierte Repositories` hinzu, als Kategorie `Integration`
+3. installier __Wort des Tages Sensor__ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ludy87/astra_germany_wort_des_tages)](https://github.com/Ludy87/astra_germany_wort_des_tages/releases)
+4. Restart Home Assistant
+
+
+## Basis Konfiguration
+
+1. Füge den Sensor in die `configuration.yaml` ein
 ```yaml
-- platform: wort_des_tages
+sensor:
+  - platform: wort_des_tages
 ```
 oder mit custom `name` für den Sensor
 ```yaml
-- platform: wort_des_tages
-  name: "my custom name"
+sensor:
+  - platform: wort_des_tages
+    name: "my custom name"
 ```
-6. Restart Home Assistant
-7. Check `Home Assistant » Developer Tools » States`
+2. Restart Home Assistant
+3. Check `Home Assistant » Developer Tools » States`
 
-# Template Erweiterung `configuration.yaml`
+---
+## Template Erweiterung `configuration.yaml`
 
 ```yaml
 template:
