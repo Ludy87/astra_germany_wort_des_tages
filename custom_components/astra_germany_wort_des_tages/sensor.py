@@ -17,6 +17,7 @@ from .const import (
     DEFAULT_NAME,
     ISSUE_URL,
     ATTR_WDT_WORD_FREQUENCY,
+    ATTR_WDT_LAST_UPDATED,
     ATTR_WDT_SPELLING,
     ATTR_WDT_MEANING,
     ATTR_WDT_ORIGIN,
@@ -27,7 +28,6 @@ _LOGGER = logging.getLogger(__name__)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
-    vol.Optional(CONF_DATE, default=datetime.now().date()): cv.string,
 })
 
 
@@ -41,9 +41,9 @@ class WDTSensor(Entity):
 
     def __init__(self, hass, config):
         """Initialize the sensor and variables."""
-        self._last_updated = config[CONF_DATE]
         self._name = config[CONF_NAME]
         self._word_frequency = None
+        self._last_updated = None
         self._spelling = None
         self._meaning = None
         self._origin = None
@@ -149,6 +149,7 @@ class WDTSensor(Entity):
         """Return the state attributes"""
         return {
             ATTR_WDT_WORD_FREQUENCY: self._word_frequency,
+            ATTR_WDT_LAST_UPDATED: self._last_updated,
             ATTR_WDT_SPELLING: self._spelling,
             ATTR_WDT_MEANING: self._meaning,
             ATTR_WDT_ORIGIN: self._origin,
