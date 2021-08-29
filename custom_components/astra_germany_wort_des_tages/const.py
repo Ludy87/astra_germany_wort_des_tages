@@ -2,12 +2,12 @@ from datetime import datetime
 
 """ Constants """
 # Base component constants
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 DOMAIN = 'wort_des_tages'
 ISSUE_URL = "https://github.com/Ludy87/astra_germany_wort_des_tages/issues"
 
 CONF_DATE = datetime.now().date()
-CONF_NAME = 'WDT'
+CONF_NAME = 'name'
 
 ATTR_WDT_WORD_FREQUENCY = 'wordfrequency'
 ATTR_WDT_SPELLING = 'spelling'
