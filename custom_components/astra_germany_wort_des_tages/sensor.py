@@ -17,6 +17,7 @@ from .const import (
     DEFAULT_NAME,
     ISSUE_URL,
     ATTR_WDT_WORD_FREQUENCY,
+    ATTR_WDT_LAST_UPDATED,
     ATTR_WDT_SPELLING,
     ATTR_WDT_MEANING,
     ATTR_WDT_ORIGIN,
@@ -61,9 +62,10 @@ class WDTSensor(Entity):
         return word_frequency
 
     def scrape_url(self):
-        #if self._last_updated == datetime.now().date():
-        #    return
-        #self._last_updated = datetime.now().date()
+        if self._last_updated == datetime.now().date():
+            logging.debug("no update %s".format(DOMAIN))
+            return
+        self._last_updated = datetime.now().date()
 
         import requests
         from bs4 import BeautifulSoup
@@ -134,6 +136,11 @@ class WDTSensor(Entity):
         return self._name
 
     @property
+    def last_updated(self):
+        """Return the last_updated of the sensor."""
+        return self._last_updated
+
+    @property
     def state(self):
         """Return the state of the sensor."""
         return self._state
@@ -143,6 +150,7 @@ class WDTSensor(Entity):
         """Return the state attributes"""
         return {
             ATTR_WDT_WORD_FREQUENCY: self._word_frequency,
+            ATTR_WDT_LAST_UPDATED: self._last_updated,
             ATTR_WDT_SPELLING: self._spelling,
             ATTR_WDT_MEANING: self._meaning,
             ATTR_WDT_ORIGIN: self._origin,
