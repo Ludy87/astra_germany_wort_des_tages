@@ -2,13 +2,14 @@
 Home Assistant Sensor sucht bei Duden.de das 'Wort des Tage'.
 """
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import voluptuous as vol
 
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.sensor import PLATFORM_SCHEMA
+from homeassistant.util import Throttle
 
 from .const import (
     CONF_NAME,
@@ -27,14 +28,18 @@ from .const import (
 
 _LOGGER = logging.getLogger(__name__)
 
+MIN_TIME_BETWEEN_UPDATES = timedelta(hours=1)
+
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
 })
 
 
-def setup_platform(hass, config, add_devices, discovery_info=None):
+def setup_platform(hass, config, add_entities, discovery_info=None):
     """Setup the sensor platform."""
-    add_devices([WDTSensor(hass, config)])
+    wdt = WDTSensor(hass, config)
+    wdt.update()
+    add_entities([wdt], True)
 
 
 class WDTSensor(Entity):
@@ -51,7 +56,7 @@ class WDTSensor(Entity):
         self._origin = None
         self._state = None
         self._word = None
-        self.scrape_url()
+        self._update =  Throttle(MIN_TIME_BETWEEN_UPDATES)(self.update)
 
     @staticmethod
     def create_frequency(full, empty):
@@ -62,7 +67,8 @@ class WDTSensor(Entity):
             word_frequency += '▯'
         return word_frequency
 
-    def scrape_url(self):
+    @Throttle(MIN_TIME_BETWEEN_UPDATES)
+    def update(self):
         if self._last_updated == datetime.now().date():
             logging.debug("no update %s".format(DOMAIN))
             return
