@@ -163,10 +163,15 @@ class WDTSensor(Entity):
         return f"{self._state}"
 
     @property
+    def word_frequency(self):
+        """Return the word frequency of the sensor."""
+        return self._word_frequency
+
+    @property
     def device_state_attributes(self):
         """Return the state attributes"""
         return {
-            ATTR_WDT_WORD_FREQUENCY: self.state,
+            ATTR_WDT_WORD_FREQUENCY: self.word_frequency,
             ATTR_WDT_CURRENT_TIME: self.current_time,
             ATTR_WDT_LAST_UPDATED: self.last_updated,
             ATTR_WDT_SPELLING: self.spelling,
