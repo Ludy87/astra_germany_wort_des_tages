@@ -135,12 +135,12 @@ class WDTSensor(Entity):
     @property
     def origin(self):
         """Return the origin of the sensor."""
-        return self._origin
+        return f"{self._origin}"
 
     @property
     def meaning(self):
         """Return the meaning of the sensor."""
-        return self._meaning
+        return f"{self._meaning}"
 
     @property
     def name(self):
@@ -160,17 +160,17 @@ class WDTSensor(Entity):
     @property
     def state(self):
         """Return the state of the sensor."""
-        return self._state
+        return f"{self._state}"
 
     @property
     def device_state_attributes(self):
         """Return the state attributes"""
         return {
-            ATTR_WDT_WORD_FREQUENCY: self._word_frequency,
-            ATTR_WDT_CURRENT_TIME: self._current_time,
-            ATTR_WDT_LAST_UPDATED: self._last_updated,
-            ATTR_WDT_SPELLING: self._spelling,
-            ATTR_WDT_MEANING: self._meaning,
-            ATTR_WDT_ORIGIN: self._origin,
-            ATTR_WDT_WORD: self._word,
+            ATTR_WDT_WORD_FREQUENCY: self.state,
+            ATTR_WDT_CURRENT_TIME: self.current_time,
+            ATTR_WDT_LAST_UPDATED: self.last_updated,
+            ATTR_WDT_SPELLING: self.spelling,
+            ATTR_WDT_MEANING: self.meaning,
+            ATTR_WDT_ORIGIN: self.origin,
+            ATTR_WDT_WORD: self.word,
         }
