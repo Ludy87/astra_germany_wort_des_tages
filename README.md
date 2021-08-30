@@ -15,12 +15,6 @@ Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet
   - Bedeutung
   - Herkunft
 
-## Options
-
-| Name | Type | Default | Required | Description
-| ---- | ---- | ------- | -------- | -----------
-| name | string | `WDT` | no | Name des Sensors
-
 ## Installation
 
 ---
@@ -34,45 +28,5 @@ Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet
 sensor:
   - platform: wort_des_tages
 ```
-oder mit custom `name` für den Sensor
-```yaml
-sensor:
-  - platform: wort_des_tages
-    name: "my custom name"
-```
 4. Restart Home Assistant
 5. Check `Home Assistant » Developer Tools » States`
-
-## Template Erweiterung `configuration.yaml`
-
-```yaml
-template:
-  - sensors:
-    wort_des_tages:
-      friendly_name: "Wort des Tages"
-      value_template: "{{ state_attr('sensor.wdt', 'word') }}"
-      icon_template: "mdi:book-open-variant"
-    wort_des_tages_freq:
-      friendly_name: "Häufigkeit"
-      value_template: "{{ state_attr('sensor.wdt', 'wordfrequency') }}"
-    wort_des_tages_spelling:
-      friendly_name: "Worttrennung"
-      value_template: "{{ state_attr('sensor.wdt', 'spelling') }}"
-      icon_template: "mdi:format-text-wrapping-clip"
-    wort_des_tages_meaning:
-      friendly_name: "Bedeutung"
-      value_template: "{{ state_attr('sensor.wdt', 'meaning') }}"
-      icon_template: "mdi:script-text-play-outline"
-    wort_des_tages_origin:
-      friendly_name: "Herkunft"
-      value_template: "{{ state_attr('sensor.wdt', 'origin') }}"
-      icon_template: "mdi:map-marker-star-outline"
-    wort_des_tages_last_updated:
-      friendly_name: "Update Datum"
-      value_template: "{{ state_attr('sensor.wdt', 'last_updated') }}"
-      icon_template: "mdi:update"
-    wort_des_tages_current_time:
-      friendly_name: "Update Zeit"
-      value_template: "{{ state_attr('sensor.wdt', 'current_time') }}"
-      icon_template: "mdi:update"
-```
