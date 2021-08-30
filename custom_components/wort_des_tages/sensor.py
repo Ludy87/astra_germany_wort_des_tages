@@ -109,7 +109,6 @@ class WDTSensor(Entity):
     def __init__(self, name, sensor_type, wdt_object):
         self._sensor = sensor_type
         self._name = f"{SENSOR_TYPES[self._sensor][0]}"
-        self._friendly_name = f"{name} {SENSOR_TYPES[self._sensor][0]}"
         self._icon = SENSOR_TYPES[self._sensor][1]
         self._state = None
         self.wdt_object = wdt_object
@@ -118,11 +117,6 @@ class WDTSensor(Entity):
     def name(self):
         """Return the name of the sensor."""
         return self._name
-
-    @property
-    def friendly_name(self):
-        """Return the name of the sensor."""
-        return self._friendly_name
 
     @property
     def state(self):
