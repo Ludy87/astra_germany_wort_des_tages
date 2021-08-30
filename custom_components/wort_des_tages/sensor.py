@@ -69,7 +69,9 @@ class WDTSensor(Entity):
 
     @Throttle(MIN_TIME_BETWEEN_UPDATES)
     def update(self):
-        if self._last_updated == datetime.now().date():
+        _current_time = datetime.now().date()
+        current_time = '{:%Y-%m-%d}'.format(_current_time)
+        if self._last_updated == current_time:
             logging.debug("no update %s".format(DOMAIN))
             return
         last_updated = datetime.now().date()
