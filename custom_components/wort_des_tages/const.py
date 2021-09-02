@@ -1,6 +1,6 @@
 """ Constants """
 # Base component constants
-__version__ = '0.0.24'
+__version__ = '0.0.25'
 VERSION = __version__
 NAME = "Wort des Tages"
 DOMAIN = 'wort_des_tages'

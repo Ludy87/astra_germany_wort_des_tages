@@ -1,5 +1,5 @@
 """
-Home Assistant Sensor sucht bei Duden.de das 'Wort des Tage'.
+Home Assistant Sensor sucht bei Duden.de das 'Wort des Tages'.
 """
 import logging
 from datetime import datetime, timedelta
@@ -8,7 +8,6 @@ import voluptuous as vol
 
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
-from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.util import Throttle
 
 from .sensor_const import *
@@ -16,10 +15,6 @@ from .sensor_const import *
 _LOGGER = logging.getLogger(__name__)
 
 MIN_TIME_BETWEEN_UPDATES = timedelta(hours=1)
-
-PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
-    vol.Optional(CONF_NAME, default=DEFAULT_NAME): cv.string,
-})
 
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
