@@ -4,10 +4,7 @@ Home Assistant Sensor sucht bei Duden.de das 'Wort des Tages'.
 import logging
 from datetime import datetime, timedelta
 
-import voluptuous as vol
-
 from homeassistant.helpers.entity import Entity
-import homeassistant.helpers.config_validation as cv
 from homeassistant.util import Throttle
 
 from .sensor_const import *
@@ -19,12 +16,11 @@ MIN_TIME_BETWEEN_UPDATES = timedelta(hours=1)
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     """Setup the sensor platform."""
-    name = config.get(CONF_NAME)
 
     wdt_object = WDT()
     entity_list = []
     for sensor_type in SENSOR_TYPES:
-        entity_list.append(WDTSensor(name, sensor_type, wdt_object))
+        entity_list.append(WDTSensor(sensor_type, wdt_object))
 
     add_entities(entity_list, True)
 
@@ -101,7 +97,7 @@ class WDT:
 class WDTSensor(Entity):
     """Representation of a Sensor."""
 
-    def __init__(self, name, sensor_type, wdt_object):
+    def __init__(self, sensor_type, wdt_object):
         self._sensor = sensor_type
         self._name = f"{SENSOR_TYPES[self._sensor][0]}"
         self._icon = SENSOR_TYPES[self._sensor][1]
@@ -121,7 +117,7 @@ class WDTSensor(Entity):
     @property
     def icon(self):
         """Icon to use in the frontend."""
-        return SENSOR_TYPES[self._sensor][1]
+        return self._icon
 
     def update(self):
         """Fetch new state data for the sensor.
