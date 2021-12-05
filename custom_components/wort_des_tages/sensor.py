@@ -79,17 +79,17 @@ class WDT:
             self.data[ATTR_WDT_WORD_FREQUENCY] = 'nicht verfügbar'
 
         try:
-            self.data[ATTR_WDT_SPELLING] = soup.find(id='rechtschreibung').find('dd').text
+            self.data[ATTR_WDT_SPELLING] = soup.find(id='rechtschreibung').find('dd').text[0:254]
         except AttributeError:
             self.data[ATTR_WDT_SPELLING] = 'nicht verfügbar'
 
         try:
-            self.data[ATTR_WDT_MEANING] = soup.find(id='bedeutung').find('p').text
+            self.data[ATTR_WDT_MEANING] = soup.find(id='bedeutung').find('p').text[0:254]
         except AttributeError:
             self.data[ATTR_WDT_MEANING] = 'nicht verfügbar'
 
         try:
-            self.data[ATTR_WDT_ORIGIN] = soup.find(id='herkunft').find('p').text
+            self.data[ATTR_WDT_ORIGIN] = soup.find(id='herkunft').find('p').text[0:254]
         except AttributeError:
             self.data[ATTR_WDT_ORIGIN] = 'nicht verfügbar'
 
