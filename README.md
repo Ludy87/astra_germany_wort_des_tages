@@ -3,7 +3,7 @@
 
 Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet und anzeigt.
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ludy87/astra_germany_wort_des_tages)](https://github.com/Ludy87/astra_germany_wort_des_tages/releases)
 ![GitHub Release Date](https://img.shields.io/github/release-date/Ludy87/astra_germany_wort_des_tages)
 [![GitHub](https://img.shields.io/github/license/Ludy87/astra_germany_wort_des_tages)](LICENSE)
