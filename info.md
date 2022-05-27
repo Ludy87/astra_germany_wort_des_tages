@@ -2,11 +2,11 @@
 
 Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet und anzeigt.
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ludy87/astra_germany_wort_des_tages)](https://github.com/Ludy87/astra_germany_wort_des_tages/releases)
-![GitHub Release Date](https://img.shields.io/github/release-date/Ludy87/astra_germany_wort_des_tages)
-[![GitHub](https://img.shields.io/github/license/Ludy87/astra_germany_wort_des_tages)](LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/Ludy87/astra_germany_wort_des_tages)](https://github.com/Ludy87/astra_germany_wort_des_tages/issues)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge&logo=appveyor)](https://github.com/custom-components/hacs)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ludy87/astra_germany_wort_des_tages?style=for-the-badge&logo=appveyor)](https://github.com/Ludy87/astra_germany_wort_des_tages/releases)
+![GitHub Release Date](https://img.shields.io/github/release-date/Ludy87/astra_germany_wort_des_tages?style=for-the-badge&logo=appveyor)
+[![GitHub](https://img.shields.io/github/license/Ludy87/astra_germany_wort_des_tages?style=for-the-badge&logo=appveyor)](LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Ludy87/astra_germany_wort_des_tages?style=for-the-badge&logo=appveyor)](https://github.com/Ludy87/astra_germany_wort_des_tages/issues)
 
 ## Features
   - Häufigkeit
@@ -17,7 +17,6 @@ Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet
 ## Installation
 
 ---
-
 ### MANUAL INSTALLATION
 
 1. In deinem `config/custom_components` Ordner, einen Ordner mit dem Namen `wort_des_tages` erstellen
