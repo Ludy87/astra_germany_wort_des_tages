@@ -1,8 +1,7 @@
 {
   "name": "Wort des Tages Sensor",
-  "domains": ["sensor"],
   "country": "DE",
-  "render_readme": "True",
-  "homeassistant": "0.99.9",
-  "iot_class": "Cloud Polling"
+  "render_readme": true,
+  "homeassistant": "2022.5.2",
+  "hacs": "1.25.1"
 }
