@@ -1,4 +1,5 @@
 # Astra-Germany - Wort des Tages
+
  Home Assistant - Wort des Tages
 
 Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet und anzeigt.
@@ -10,11 +11,14 @@ Ein Home Assistant Sensor, der das aktuelle "Wort des Tages" auf Duden.de findet
 [![GitHub issues](https://img.shields.io/github/issues/Ludy87/astra_germany_wort_des_tages?style=for-the-badge&logo=appveyor)](https://github.com/Ludy87/astra_germany_wort_des_tages/issues)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge&logo=appveyor)](https://github.com/psf/black)
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/ludy87)
+
 ## Features
-  - Häufigkeit
-  - Worttrennung
-  - Bedeutung
-  - Herkunft
+
+- Häufigkeit
+- Worttrennung
+- Bedeutung
+- Herkunft
 
 ## Installation
 
