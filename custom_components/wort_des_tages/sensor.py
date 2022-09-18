@@ -4,7 +4,7 @@ from __future__ import annotations
 import logging
 from datetime import datetime, timedelta
 
-from homeassistant.helpers.entity import Entity
+from homeassistant.components.sensor import SensorEntity, RestoreEntity
 from homeassistant.util import Throttle
 
 from .const import (
@@ -15,6 +15,7 @@ from .const import (
     ATTR_WDT_SPELLING,
     ATTR_WDT_WORD,
     ATTR_WDT_WORD_FREQUENCY,
+    DOMAIN,
 )
 from .sensor_const import SENSOR_TYPES
 
@@ -104,10 +105,11 @@ class WDT:
             self.data[ATTR_WDT_ORIGIN] = "nicht verfügbar"
 
 
-class WDTSensor(Entity):
+class WDTSensor(SensorEntity, RestoreEntity):
     """Representation of a Sensor."""
 
     def __init__(self, sensor_type, wdt_object):
+        super().__init__()
         self._sensor = sensor_type
         self._name = f"{SENSOR_TYPES[self._sensor][0]}"
         self._icon = SENSOR_TYPES[self._sensor][1]
@@ -115,17 +117,22 @@ class WDTSensor(Entity):
         self.wdt_object = wdt_object
 
     @property
-    def name(self):
+    def unique_id(self) -> str | None:
+        """Return a unique ID."""
+        return "{}_{}".format(DOMAIN, self._name)
+
+    @property
+    def name(self) -> str | None:
         """Return the name of the sensor."""
         return self._name
 
     @property
-    def state(self):
+    def native_value(self):
         """Return the state of the sensor."""
         return self._state
 
     @property
-    def icon(self):
+    def icon(self) -> str | None:
         """Icon to use in the frontend."""
         return self._icon
 
